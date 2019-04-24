@@ -12,6 +12,7 @@ async def hola(ctx):
 
 @bot.command()
 #https://api.warframestat.us/pc/cetusCycle
+#C:\Users\Dhoser\Documents\asd
 async def cetus(ctx):
     embed = discord.Embed(title="Cetus")
     r = requests.get('https://api.warframestat.us/pc/cetusCycle')
@@ -19,13 +20,12 @@ async def cetus(ctx):
     tiempo = contenido['timeLeft']
     estado = contenido['isDay']
     embed.add_field(name="tiempo restante", value=tiempo)
-    embed.set_thumbnail(
-        url="https://vignette.wikia.nocookie.net/warframe/images/0/04/CetusWisp.png/revision/latest?cb=20171015035902")
-    if estado=="true" :
+    if estado :
       embed.add_field(name="Estado del ciclo ",  value=" Esta de dia bro :c")
+      embed.set_thumbnail(url="https://png2.kisspng.com/sh/0437f30297458a68691a636ba2c26a86/L0KzQYi4UsE3N5Y6eZGAYUO4c4q6UshiOmc2TZCCOEm3QYK6WME2OWQ5T6Y8NUS4RoaCTwBvbz==/5a35c9328a2615.7894113815134743545659.png")
     else:
       embed.add_field(name="Estado del ciclo ",  value=" Esta de noche bro :D")
-    
+      embed.set_thumbnail(url="https://cdn.icon-icons.com/icons2/865/PNG/512/Citycons_night_icon-icons.com_67936.png")
     await ctx.send(embed=embed)
 
 @bot.event
